@@ -1,0 +1,5 @@
+{"location":"api.ts:6","message":"API_BASE configured","data":{"API_BASE":"http://localhost:3001","envValue":"http://localhost:3001"},"timestamp":1767851201540,"sessionId":"debug-session","hypothesisId":"H3"}
+{"location":"api.ts:6","message":"API_BASE configured","data":{"API_BASE":"http://localhost:3001","envValue":"http://localhost:3001"},"timestamp":1767851230191,"sessionId":"debug-session","hypothesisId":"H3"}
+{"location":"index.ts:13","message":"Server starting","data":{"PORT":3001},"timestamp":1767851548363,"sessionId":"debug-session","hypothesisId":"H1,H4"}
+{"location":"index.ts:37","message":"Server listening","data":{"PORT":3001,"timestamp":1767851548384},"timestamp":1767851548384,"sessionId":"debug-session","hypothesisId":"H1,H4"}
+{"location":"auth.ts:11","message":"Login route HIT","data":{"hasBody":true,"origin":"http://localhost:5173","method":"POST"},"timestamp":1767851662291,"sessionId":"debug-session","hypothesisId":"H1,H2,H5"}

@@ -1,0 +1,163 @@
+/* Using TailwindCSS via CDN - custom styles below */
+
+@layer base {
+    :root {
+        color-scheme: dark;
+    }
+
+    html,
+    body {
+        height: 100%;
+    }
+
+    body {
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji",
+            "Segoe UI Emoji";
+        background: #070A0A;
+        color: #EAF2F2;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+}
+
+@layer components {
+    .grid-bg {
+        background-image: linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+        background-size: 56px 56px;
+        background-position: center;
+        mask-image: radial-gradient(circle at 50% 35%, black 0%, black 45%, transparent 75%);
+    }
+
+    /* Blog post typography */
+    .prose {
+        line-height: 1.8;
+    }
+
+    .prose h2 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        color: #EAF2F2;
+    }
+
+    .prose h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+        color: #EAF2F2;
+    }
+
+    .prose p {
+        margin-bottom: 1rem;
+    }
+
+    .prose ul,
+    .prose ol {
+        margin-left: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .prose li {
+        margin-bottom: 0.5rem;
+    }
+
+    .prose code {
+        background: rgba(34, 197, 94, 0.1);
+        padding: 0.2rem 0.4rem;
+        border-radius: 0.25rem;
+        font-size: 0.875rem;
+        color: #22C55E;
+    }
+
+    .prose blockquote {
+        border-left: 3px solid #22C55E;
+        padding-left: 1rem;
+        margin: 1.5rem 0;
+        font-style: italic;
+        color: #9FB1B1;
+    }
+
+    .line-clamp-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .line-clamp-3 {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    /* Footer enhancements */
+    footer a {
+        position: relative;
+    }
+
+    footer a::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 1px;
+        bottom: -2px;
+        left: 0;
+        background-color: #22C55E;
+        transition: width 0.3s ease;
+    }
+
+    footer a:hover::after {
+        width: 100%;
+    }
+
+    /* Smooth scroll */
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+/* Light mode overrides */
+.light {
+    color-scheme: light;
+}
+
+.light body {
+    background: #F9FAFA;
+    color: #0A0F0F;
+}
+
+.light .bg-bg {
+    background-color: #F9FAFA !important;
+}
+
+.light .bg-bg\/80 {
+    background-color: rgba(249, 250, 250, 0.8) !important;
+}
+
+.light .text-text {
+    color: #0A0F0F !important;
+}
+
+.light .text-muted {
+    color: #5A6666 !important;
+}
+
+.light .border-white\/10 {
+    border-color: rgba(10, 15, 15, 0.1) !important;
+}
+
+.light .bg-white\/5 {
+    background-color: rgba(10, 15, 15, 0.05) !important;
+}
+
+.light .bg-white\/10 {
+    background-color: rgba(10, 15, 15, 0.1) !important;
+}
