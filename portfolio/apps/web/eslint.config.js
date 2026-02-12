@@ -21,3 +21,12 @@ export default defineConfig([
     },
   },
 ])
+
+
+module.exports = {
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    project: ['./apps/web/tsconfig.json'],
+    tsconfigRootDir: __dirname,
+  },
+};

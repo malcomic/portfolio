@@ -16,7 +16,6 @@ import { AdminProfilePage } from "../pages/admin/AdminProfilePage";
 import { AdminServicesPage } from "../pages/admin/AdminServicesPage";
 import { AdminProjectsPage } from "../pages/admin/AdminProjectsPage";
 import { AdminPostsPage } from "../pages/admin/AdminPostsPage";
-import { PlaceholderPage } from "../pages/PlaceholderPage";
 import { PrivacyPage } from "../pages/PrivacyPage";
 import { TermsPage } from "../pages/TermsPage";
 

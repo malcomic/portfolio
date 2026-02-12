@@ -84,6 +84,33 @@ This document provides a comprehensive overview of the portfolio application arc
                   (Type Safety)        (Runtime Validation)
 ```
 
+### Mermaid Diagram
+
+You can render the same diagram in a Mermaid viewer or use the included file at `diagrams/architecture.mmd`.
+
+```mermaid
+flowchart LR
+  Browser["User Browser (Web) | Chrome / Safari"]
+  Web["Frontend: apps/web\n(React + Vite + Tailwind)"]
+  API["Backend: apps/api\n(Express + TypeScript + Prisma)"]
+  DB["Postgres (Prisma / Supabase)"]
+  Storage["Supabase Storage / CDN"]
+  Shared["packages/shared\n(Types + Zod schemas)"]
+  CI["CI/CD (Vercel / Render / GitHub Actions)"]
+
+  Browser -->|HTTP / Fetch| Web
+  Web -->|REST / JSON| API
+  API -->|SQL via Prisma| DB
+  API -->|Uploads / Downloads| Storage
+  Web -->|Direct Uploads| Storage
+  Web --> Shared
+  API --> Shared
+  CI --> Web
+  CI --> API
+```
+
+
+
 ## 📁 Monorepo Structure
 
 ```

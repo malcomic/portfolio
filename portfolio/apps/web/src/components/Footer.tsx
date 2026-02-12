@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { FaGithub, FaLinkedin, FaTwitter, FaInstagram, FaYoutube, FaGlobe } from "react-icons/fa";
-import { HiMail, HiPhone, HiLocationMarker } from "react-icons/hi";
+import { HiMail } from "react-icons/hi";
 import { useProfile } from "../hooks/public";
 
 const socialIcons: Record<string, any> = {

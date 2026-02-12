@@ -1,4 +1,4 @@
-import { useState, FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 import { Card } from "../Card";
 import { HiMail } from "react-icons/hi";
 

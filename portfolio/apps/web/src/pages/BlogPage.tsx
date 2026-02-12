@@ -234,7 +234,7 @@ export function BlogPage() {
 
         {/* Popular Posts */}
         {q.data && q.data.length > 0 && (
-          <PopularPosts posts={q.data} />
+          <PopularPosts posts={q.data.filter(p => p.publishedAt !== undefined) as any} />
         )}
 
         {/* Tags */}
@@ -249,7 +249,7 @@ export function BlogPage() {
         {/* Archive */}
         {q.data && q.data.length > 0 && (
           <Archive
-            posts={q.data}
+            posts={q.data.filter(p => p.publishedAt !== undefined) as any}
             onSelectMonth={(month) => {
               // Simple implementation - you could enhance this
               console.log("Filter by month:", month);
