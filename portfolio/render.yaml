@@ -1,4 +1,12 @@
-# Render Blueprint for Portfolio API
+services:
+  - name: portfolio-api
+    type: web
+    env: node
+    branch: main
+    rootDir: portfolio
+    buildCommand: npm install && cd apps/api && npm run build
+    startCommand: cd apps/api && npm start
+    plan: free# Render Blueprint for Portfolio API
 # Deploy: https://dashboard.render.com/select-repo
 
 services:

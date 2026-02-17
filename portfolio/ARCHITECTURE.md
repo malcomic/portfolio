@@ -109,8 +109,6 @@ flowchart LR
   CI --> API
 ```
 
-
-
 ## 📁 Monorepo Structure
 
 ```
@@ -228,6 +226,7 @@ Component renders with data
 ```
 
 **Example:**
+
 ```typescript
 // Frontend: hooks/public.ts
 export function useProjects() {
@@ -277,6 +276,7 @@ UI updates with fresh data
 ```
 
 **Example:**
+
 ```typescript
 // Frontend: Admin creates project
 const mutation = useMutation({
@@ -293,10 +293,10 @@ const mutation = useMutation({
 router.post("/projects", requireAdmin, async (req, res) => {
   // Validate with Zod
   const data = projectPublicSchema.parse(req.body);
-  
+
   // Save to database
   const project = await prisma.project.create({ data });
-  
+
   res.json(project);
 });
 ```
@@ -349,6 +349,7 @@ router.post("/projects", requireAdmin, async (req, res) => {
 The `@portfolio/shared` package ensures type safety and consistency:
 
 ### Frontend Usage
+
 ```typescript
 import { ProjectPublic, PostPublic } from "@portfolio/shared";
 
@@ -364,6 +365,7 @@ interface ProjectCardProps {
 ```
 
 ### Backend Usage
+
 ```typescript
 import { projectPublicSchema, postPublicSchema } from "@portfolio/shared";
 
@@ -375,6 +377,7 @@ router.post("/projects", async (req, res) => {
 ```
 
 ### Benefits
+
 - ✅ Single source of truth for types
 - ✅ Frontend gets compile-time type checking
 - ✅ Backend gets runtime validation
@@ -445,6 +448,7 @@ Post
 ## 🛣️ API Route Structure
 
 ### Public Routes (No Authentication)
+
 ```
 GET  /api/profile            → Profile data
 GET  /api/services           → List services
@@ -455,6 +459,7 @@ GET  /api/posts/:slug        → Single post
 ```
 
 ### Authentication Routes
+
 ```
 POST /api/auth/login         → Admin login
 POST /api/auth/logout        → Admin logout
@@ -462,6 +467,7 @@ GET  /api/auth/me            → Current admin user
 ```
 
 ### Admin Routes (JWT Required)
+
 ```
 PUT    /api/admin/profile              → Update profile
 
@@ -481,38 +487,42 @@ DELETE /api/admin/posts/:id            → Delete post
 ## 🔧 Technology Stack Summary
 
 ### Frontend Stack
-| Technology | Purpose |
-|------------|---------|
-| React 19 | UI library |
-| TypeScript | Type safety |
-| Vite | Build tool & dev server |
-| TailwindCSS | Styling framework |
-| React Router | Client-side routing |
+
+| Technology     | Purpose                 |
+| -------------- | ----------------------- |
+| React 19       | UI library              |
+| TypeScript     | Type safety             |
+| Vite           | Build tool & dev server |
+| TailwindCSS    | Styling framework       |
+| React Router   | Client-side routing     |
 | TanStack Query | Data fetching & caching |
-| Fetch API | HTTP requests |
+| Fetch API      | HTTP requests           |
 
 ### Backend Stack
-| Technology | Purpose |
-|------------|---------|
-| Node.js | Runtime environment |
-| TypeScript | Type safety |
-| Express.js | Web framework |
-| Prisma | ORM & database toolkit |
-| PostgreSQL | Database |
-| JWT | Authentication tokens |
-| bcryptjs | Password hashing |
-| Zod | Runtime validation |
+
+| Technology | Purpose                |
+| ---------- | ---------------------- |
+| Node.js    | Runtime environment    |
+| TypeScript | Type safety            |
+| Express.js | Web framework          |
+| Prisma     | ORM & database toolkit |
+| PostgreSQL | Database               |
+| JWT        | Authentication tokens  |
+| bcryptjs   | Password hashing       |
+| Zod        | Runtime validation     |
 
 ### Shared Stack
-| Technology | Purpose |
-|------------|---------|
-| TypeScript | Type definitions |
-| Zod | Validation schemas |
-| tsup | Bundler |
+
+| Technology | Purpose            |
+| ---------- | ------------------ |
+| TypeScript | Type definitions   |
+| Zod        | Validation schemas |
+| tsup       | Bundler            |
 
 ## 🚀 Development Workflow
 
 ### Starting Development
+
 ```bash
 # Terminal 1: Backend
 npm run dev:api
@@ -527,19 +537,23 @@ npm -w apps/api run prisma:studio
 ### Making Changes
 
 **To shared types/schemas:**
+
 1. Edit `packages/shared/src/types.ts` or `schemas.ts`
 2. Rebuild: `npm -w packages/shared run build`
 3. Both frontend and backend pick up changes
 
 **To backend:**
+
 1. Edit files in `apps/api/src/`
 2. Server auto-restarts (tsx watch mode)
 
 **To frontend:**
+
 1. Edit files in `apps/web/src/`
 2. Browser auto-updates (Vite HMR)
 
 **To database schema:**
+
 1. Edit `apps/api/prisma/schema.prisma`
 2. Create migration: `npm -w apps/api run prisma:migrate`
 3. Regenerate client: `npm -w apps/api run prisma:generate`
@@ -547,12 +561,14 @@ npm -w apps/api run prisma:studio
 ## 🏗️ Build & Deploy
 
 ### Development
+
 ```bash
 npm run dev:api      # Backend on :5000
 npm run dev:web      # Frontend on :5173
 ```
 
 ### Production
+
 ```bash
 npm run build        # Builds all apps
 
@@ -567,24 +583,31 @@ npm start            # Runs compiled code
 ## 🎯 Key Architectural Decisions
 
 ### 1. Monorepo Structure
+
 **Why?** Easier to maintain shared code, simplified dependency management, atomic commits across frontend/backend.
 
 ### 2. Shared Package
+
 **Why?** Type safety between frontend/backend, single source of truth, no type drift.
 
 ### 3. JWT in HTTP-only Cookies
+
 **Why?** Secure (XSS protection), automatic inclusion in requests, no manual token management.
 
 ### 4. Prisma ORM
+
 **Why?** Type-safe database queries, migrations, great developer experience.
 
 ### 5. React Query
+
 **Why?** Automatic caching, refetching, loading states, optimistic updates.
 
 ### 6. Vite
+
 **Why?** Fast HMR, modern build tool, great DX.
 
 ### 7. Zod Validation
+
 **Why?** Runtime type checking, clear error messages, schema-based validation.
 
 ## 📚 Further Reading
@@ -597,4 +620,3 @@ npm start            # Runs compiled code
 ---
 
 **This architecture provides clear separation of concerns while maintaining type safety and shared code between frontend and backend.** 🎯
-
